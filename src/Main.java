@@ -8,28 +8,35 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        // Mortgage Calculation
+        // Comparison Operators
+        //int x = 1;
+        //int y = 1;
+        //System.out.println(x == y);
+        // Logical Operators
+        int temperature = -50;
+        boolean isWarm = temperature < 25 && temperature > -25; // returns true only if both are true
 
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENT = 100;
+        boolean hasHighIncome = true;
+        boolean hasGoodCredit = true;
+        boolean hasCriminalRecord = true;
+        boolean isEligible =( hasHighIncome || hasGoodCredit) && !hasCriminalRecord; // if one of the expression is true then the response is true
 
-        Scanner scanner = new Scanner(System.in);
+        // if statement
+//        int temp = 32;
+//        if (temp > 30) {
+//            System.out.println("Is a hot day");
+//        } else if (temp < 20 && temp > 25) {
+//            System.out.println("Beautiful day");
+//        } else {
+//            System.out.println("cold day");
+//        }
+        // simplifying if statements
+        int income = 120_000;
+        boolean hasHighIncomes = (income > 10000);
 
-        System.out.print("Principal: ");
-        int principal = scanner.nextInt();
+        // Ternary Operator
+        int inco = 120_000;
+        String className = inco > 10_000 ? "First" : "Economy";
 
-        System.out.print("Annual Interest Rate: ");
-        float annualInterest = scanner.nextFloat();
-        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
-
-        System.out.print("Period (years): ");
-        byte years = scanner.nextByte();
-        int numberOfPayments = years * MONTHS_IN_YEAR;
-
-        double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
-                          / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
-
-        String mortgageFormatted = NumberFormat.getCurrencyInstance().format((double) mortgage);
-        System.out.println("Mortgage: " + mortgageFormatted);
     }
 }
