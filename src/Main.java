@@ -8,17 +8,18 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        // Switch Statements
-         String role = "sdf";
-         switch (role) {
-             case "admin":
-                 System.out.println("Admin");
-                 break;
-             case "moderator":
-                 System.out.println("Moderator");
-                 break;
-             default:
-                 System.out.println("Invalid role");
-         }
+        // FizzBuzz
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Number: ");
+        int number = scanner.nextInt();
+
+        if (number % 5 == 0 && number % 3 == 0)
+            System.out.println("FizzBuzz");
+        else if (number % 3 == 0)
+            System.out.println("Buzz");
+        else if (number % 5 == 0)
+            System.out.println("Fizz");
+        else
+            System.out.println(number);
     }
 }
