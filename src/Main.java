@@ -8,23 +8,28 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        // Math class
-        int result = Math.round(1.1F);
-        // here we are casting a float to an integer
-        int result2 = (int)Math.ceil(1.1F);
-        int  result3 = (int)Math.floor(1.1F);
-        // random is for double not integer
-        int  result4 = (int) Math.round(Math.random() * 100);
+        // Mortgage Calculation
 
-        // formating numbers
-       //  NumberFormat percent = NumberFormat.getPercentInstance();
-        // String results = percent.format(result);
-        String results = NumberFormat.getPercentInstance().format(result4);
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
 
-        // Reading input
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Name: ");
-        String name = scanner.next().trim();
-        System.out.println("you name is  " + name);
+
+        System.out.print("Principal: ");
+        int principal = scanner.nextInt();
+
+        System.out.print("Annual Interest Rate: ");
+        float annualInterest = scanner.nextFloat();
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+
+        System.out.print("Period (years): ");
+        byte years = scanner.nextByte();
+        int numberOfPayments = years * MONTHS_IN_YEAR;
+
+        double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
+                          / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format((double) mortgage);
+        System.out.println("Mortgage: " + mortgageFormatted);
     }
 }
