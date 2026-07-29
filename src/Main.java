@@ -6,8 +6,18 @@ import java.util.Date;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        int[][] numbers = { {1,2,3}, {4, 5, 5}};
-        System.out.println(Arrays.deepToString(numbers));
+        // learn about constant add final infront of the declaration in other never to modif it
+        final float pi = 3.14f;
 
+        // Arithmetic operations
+        // an expression is a piece of code that produces a value
+        double result = (double)10 / (double)3;
+        int x = 1;
+        //x = x + 2;
+        x += 2; //argumented operators
+        System.out.println(x);
+
+        //order of operations
+        int y = 10 + 3 * 2;
     }
 }
