@@ -8,16 +8,13 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        // Encapsulation is that you can inner details. we are going to use getters and setters to practice
+        // Getters and setters are methods or functions attach to object that allow us to get access to our attributes
         System.out.println("Hello World!");
         User u = new User();
-        u.name = "Caleb";
+        u.set_name("Caleb");
         u.membership = "Gold";
 
-        User u2 = new User();
-        u2.name = "Sally";
-        u2.membership = "Silver";
-
-        System.out.println(u.name);
-        System.out.println(u2.name);
+        System.out.println(u.get_name());
     }
 }
