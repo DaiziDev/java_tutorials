@@ -12,6 +12,10 @@ public class User {
         set_membership(membership);
     }
 
+    public User(String name) {
+        set_name(name);
+    }
+
     //method to set data are usually going to be void which means they are not going to return anything
     void set_name(String name){
         _name = name;
@@ -37,4 +41,5 @@ public class User {
     String get_membership(){
         return _membership;
     }
+    // overriding is replacing a method tht already exist
 }
