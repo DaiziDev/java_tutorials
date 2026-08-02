@@ -8,56 +8,42 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-            // Loops
-        // For Loops
-//        for(int  i = 0; i < 5; i++) {
-//            //System.out.println("Hello World");
-//        }
-//        // While Loops use when we dont know how many times we want to execute a statements
-//        int i = 0;
-//        while(i > 0 ) {
-//            //System.out.println("Hello World" + 1);
-//            i--;
-//        }
-        // practice exemple
-        //Scanner scanner = new Scanner(System.in);
-       // String input = "";
-       // while (!input.equals("quit")) {
-            //System.out.println("Input : ");
-            //input = scanner.next().toLowerCase();
-            //System.out.println(input);
-       // }
-        // Do while loop similar to while but get executed atleast once
-//        Scanner scanner = new Scanner(System.in);
-//        String input = "";
-//        do {
-//            System.out.print("Input: ");
-//            input = scanner.next().toLowerCase();
-//            System.out.println(input);
-//        } while (!input.equals("quit"));
+            // Mortgate calculators
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
 
-        // break and continue
-//        Scanner scanner = new Scanner(System.in);
-//        String input = "";
-//        while (!input.equals("quit")) {
-//            System.out.print("Input :" );
-//            input = scanner.next().toLowerCase();
-//            if(input.equals("pass"))
-//                continue;
-//            if(!input.equals("quit"))
-//                break;
-//            System.out.println(input);
-//        }
+        Scanner scanner = new Scanner(System.in);
 
-        // For each loop in java
-        String[] fruits = {"apple", "mango", "orange"};
-
-//        for (int i = fruits.length; i > 0; i--) {
-//            System.out.println(fruits[i].toUpperCase());
-//        }
-
-        for (String fruit : fruits) {
-            System.out.println(fruit);
+        int principal;
+        while (true) {
+            System.out.println("Principal : ");
+            principal = scanner.nextInt();
+            if (principal >= 1000 && principal <= 1_000_000)
+                break;
+            System.out.println("Enter a value between 1000 and 1000000");
         }
+
+        float monthlyInterest;
+        while (true) {
+            System.out.println("Annual Intereset Rate: ");
+            float annualInterestRate = scanner.nextFloat();
+            if (annualInterestRate >= 1 && annualInterestRate <= 30) {
+                monthlyInterest = annualInterestRate / PERCENT / MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("Enter a value between 1 and 30");
+        }
+
+        int numberOfPayments;
+        while (true) {
+            System.out.print("Period (years): ");
+            byte years = scanner.nextByte();
+            if (years >= 1 && years <= 30) {
+                numberOfPayments = years * MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("Enter a value between 1 and 30");
+        }
+        double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments ));
     }
 }
