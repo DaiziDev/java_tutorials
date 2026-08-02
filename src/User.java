@@ -1,6 +1,16 @@
 public class User {
     private String _name;
-    private String _membership;
+    private String _membership = "Bronze";
+
+    public User() {
+
+    }
+
+    // constructor is just like a method but there is not return type
+    public User(String name, String membership) {
+        set_name(name);
+        set_membership(membership);
+    }
 
     //method to set data are usually going to be void which means they are not going to return anything
     void set_name(String name){

@@ -10,9 +10,8 @@ public class Main {
     public static void main(String[] args) {
         // Method overloading
         System.out.println("Hello World!");
-        User u = new User();
-        u.set_name("Caleb");
-        u.set_membership(User.Membership.Bronze);
+        User u = new User("Caleb", "Silver");
+        User u2 = new User();
 
         System.out.println(u.get_name());
         System.out.println(u.get_membership());
